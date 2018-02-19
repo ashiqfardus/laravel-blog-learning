@@ -1,12 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="card">
         <div class="card-header text-center">
             Create a new post
         </div>
         <div class="card-body">
-            <form action="{{route('post.store')}}" method="post">
+            <form action="{{route('post.store')}}" method="post" enctype="multipart/form-data">
                 {{csrf_field()}}
 
                 <div class="form-group">
@@ -32,4 +33,6 @@
             </form>
         </div>
     </div>
+
+    @include('admin.include.errors')
 @endsection
