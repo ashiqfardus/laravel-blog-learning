@@ -12,10 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+    <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </head>
 <body>
@@ -75,15 +72,21 @@
                                     <a href="{{route('home')}}">Home</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="{{route('category.create')}}">Create New Category</a>
+                                    <a href="{{route('posts')}}">View Posts</a>
                                 </li>
                                 <li class="list-group-item">
                                     <a href="{{route('categories')}}">View Category</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="{{route('post.create')}}">Create New Post</a>
+                                    <a href="{{route('category.create')}}">Create New Category</a>
                                 </li>
 
+                                <li class="list-group-item">
+                                    <a href="{{route('post.create')}}">Create New Post</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{route('posts.trashed')}}">All Trashed Posts</a>
+                                </li>
                             </ul>
                         </div>
                         @endif
@@ -98,5 +101,15 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/toastr.min.js') }}"></script>
+
+    <script>
+        @if(Session::has('success'))
+            toastr.success('{{Session::get('success')}}');
+        @endif
+        @if(Session::has('info'))
+        toastr.info('{{Session::get('info')}}');
+        @endif
+    </script>
 </body>
 </html>

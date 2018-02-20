@@ -58,5 +58,25 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function()
         'uses'=>'CategoriesController@update',
         'as'=>'category.update'
     ]);
+    Route::get('/posts',[
+       'uses'=>'PostController@index',
+       'as'=>'posts'
+    ]);
+    Route::get('/post/delete/{id}',[
+        'uses'=>'PostController@destroy',
+        'as'=>'post.delete'
+    ]);
+    Route::get('/posts/trashed',[
+        'uses'=>'PostController@trashed',
+        'as'=>'posts.trashed'
+    ]);
+    Route::get('/post/kill/{id}',[
+        'uses'=>'PostController@kill',
+        'as'=>'post.kill'
+    ]);
+    Route::get('/post/restore/{id}',[
+        'uses'=>'PostController@restore',
+        'as'=>'post.restore'
+    ]);
 });
 

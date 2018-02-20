@@ -21,6 +21,15 @@
                     </lavel>
                 </div>
                 <div class="form-group">
+                    <lavel for="title">Select Category</lavel>
+
+                    <select name="category_id" id="category" class="form-control">
+                        @foreach($categories as $category)
+                            <option value="{{$category->id}}">{{$category->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
                     <lavel for="title">Content</lavel>
                     <textarea id="content" cols="5" rows="5" type="text" name="content" class="form-control"></textarea>
 
