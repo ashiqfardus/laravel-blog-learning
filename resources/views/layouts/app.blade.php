@@ -75,10 +75,16 @@
                                     <a href="{{route('posts')}}">View Posts</a>
                                 </li>
                                 <li class="list-group-item">
+                                    <a href="{{route('tags')}}">View tags</a>
+                                </li>
+                                <li class="list-group-item">
                                     <a href="{{route('categories')}}">View Category</a>
                                 </li>
                                 <li class="list-group-item">
                                     <a href="{{route('category.create')}}">Create New Category</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{route('tag.create')}}">Create New Tag</a>
                                 </li>
 
                                 <li class="list-group-item">

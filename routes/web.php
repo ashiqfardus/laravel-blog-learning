@@ -78,5 +78,38 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function()
         'uses'=>'PostController@restore',
         'as'=>'post.restore'
     ]);
+    Route::get('/post/edit/{id}',[
+        'uses'=>'PostController@edit',
+        'as'=>'post.edit'
+    ]);
+    Route::post('/post/update/{id}',[
+        'uses'=>'PostController@update',
+        'as'=>'post.update'
+    ]);
+
+    Route::get('/tags',[
+        'uses'=>'tagsController@index',
+        'as'=>'tags'
+    ]);
+    Route::get('/tag/edit/{id}',[
+        'uses'=>'tagsController@edit',
+        'as'=>'tag.edit'
+    ]);
+    Route::post('/tag/update/{id}',[
+        'uses'=>'tagsController@update',
+        'as'=>'tag.update'
+    ]);
+    Route::get('/tag/delete/{id}',[
+        'uses'=>'tagsController@destroy',
+        'as'=>'tag.delete'
+    ]);
+    Route::get('/tag/create',[
+        'uses'=>'tagsController@create',
+        'as'=>'tag.create'
+    ]);
+    Route::post('/tag/store',[
+        'uses'=>'tagsController@store',
+        'as'=>'tag.store'
+    ]);
 });
 

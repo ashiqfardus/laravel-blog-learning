@@ -19,26 +19,37 @@
                 </th>
                 </thead>
                 <tbody>
-                    @foreach($posts as $post)
+                    @if($posts->count()>0)
+                        @foreach($posts as $post)
+                            <tr>
+                                <td>
+                                    <img src="{{$post->featured}}" alt="{{$post->title}}" width="70px" height="55px">
+                                </td>
+                                <td>
+                                    {{$post->title}}
+                                </td>
+                                <td>
+                                    <a href="{{route('post.edit',['id'=>$post->id ])}}" class="btn btn-sm btn-info">
+                                        <i class="fas fa-pencil-alt"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="{{route('post.delete',['id'=>$post->id ])}}" class="btn btn-sm btn-danger">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+
+
+                    @else
                         <tr>
-                            <td>
-                                <img src="{{$post->featured}}" alt="{{$post->title}}" width="70px" height="55px">
-                            </td>
-                            <td>
-                                {{$post->title}}
-                            </td>
-                            <td>
-                                {{--<a href="{{route('post.edit',['id'=>$post->id ])}}" class="btn btn-sm btn-info">--}}
-                                    {{--<i class="fas fa-pencil-alt"></i>--}}
-                                {{--</a>--}}
-                            </td>
-                            <td>
-                                <a href="{{route('post.delete',['id'=>$post->id ])}}" class="btn btn-sm btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </a>
-                            </td>
+                            <th colspan="5" class="text-center">
+                                No Posts
+                            </th>
                         </tr>
-                    @endforeach
+
+                    @endif
                 </tbody>
             </table>
         </div>
