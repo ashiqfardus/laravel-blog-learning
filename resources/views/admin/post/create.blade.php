@@ -30,6 +30,14 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <lavel for="title">Select Tags</lavel>
+                    @foreach($tags as $tag)
+                        <div class="checkbox">
+                            <lavel><input type="checkbox" name="tags[]" value="{{$tag->id}}">{{$tag->tag}}</lavel>
+                        </div>
+                    @endforeach
+                </div>
+                <div class="form-group">
                     <lavel for="title">Content</lavel>
                     <textarea id="content" cols="5" rows="5" type="text" name="content" class="form-control"></textarea>
 

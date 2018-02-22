@@ -19,6 +19,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/test',function()
+{
+    return App\Category::find(7)->posts;
+});
+
 Route::group(['prefix'=>'admin','middleware'=>'auth'],function()
 {
 
@@ -110,6 +115,19 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function()
     Route::post('/tag/store',[
         'uses'=>'tagsController@store',
         'as'=>'tag.store'
+    ]);
+
+    Route::get('/users',[
+       'uses'=>'UserController@index',
+       'as'=>'users'
+    ]);
+    Route::get('/user/create',[
+        'uses'=>'UserController@create',
+        'as'=>'user.create'
+    ]);
+    Route::post('/user/store',[
+        'uses'=>'UserController@store',
+        'as'=>'user.store'
     ]);
 });
 

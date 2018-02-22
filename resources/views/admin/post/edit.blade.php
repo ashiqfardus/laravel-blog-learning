@@ -23,9 +23,27 @@
 
                     <select name="category_id" id="category" class="form-control">
                         @foreach($categories as $category)
-                            <option value="{{$category->id}}">{{$category->name}}</option>
+                            <option value="{{$category->id}}"
+                            @if($post->category_id==$category->id)
+                                SELECTED
+                                @endif
+                            >{{$category->name}}</option>
                         @endforeach
                     </select>
+                </div>
+                <div class="form-group">
+                    <lavel for="title">Select Tags</lavel>
+                    @foreach($tags as $tag)
+                        <div class="checkbox">
+                            <lavel><input type="checkbox" name="tags[]" value="{{$tag->id}}"
+                                @foreach($post->tags as $t)
+                                    @if($tag->id==$t->id)
+                                        checked
+                                    @endif
+                                @endforeach
+                                >{{$tag->tag}}</lavel>
+                        </div>
+                    @endforeach
                 </div>
                 <div class="form-group">
                     <lavel for="title">Content</lavel>
