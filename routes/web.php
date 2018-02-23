@@ -11,13 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[
+    'uses'=>'FrontendController@index',
+    'as'=>'index'
+]);
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin/home', 'HomeController@index')->name('home');
 
 Route::get('/test',function()
 {
@@ -129,5 +130,39 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function()
         'uses'=>'UserController@store',
         'as'=>'user.store'
     ]);
+    Route::get('/user/admin/{id}',[
+        'uses'=>'UserController@admin',
+        'as'=>'user.admin'
+    ]);
+    Route::get('/user/delete/{id}',[
+        'uses'=>'UserController@destroy',
+        'as'=>'user.delete'
+    ]);
+
+    Route::get('/user/notadmin/{id}',[
+        'uses'=>'UserController@notadmin',
+        'as'=>'user.notadmin'
+    ]);
+
+
+    Route::get('/user/profile',[
+        'uses'=>'ProfilesController@index',
+        'as'=>'user.profile'
+    ]);
+
+    Route::post('/user/profile/update',[
+        'uses'=>'ProfilesController@update',
+        'as'=>'user.profile.update'
+    ]);
+
+    Route::get('/settings',[
+        'uses'=>'SettingsController@index',
+        'as'=>'settings'
+    ])->middleware('admin');
+
+    Route::post('/settings/update',[
+        'uses'=>'SettingsController@update',
+        'as'=>'settings.update'
+    ])->middleware('admin');
 });
 

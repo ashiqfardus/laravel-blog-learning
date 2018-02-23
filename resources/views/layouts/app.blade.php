@@ -14,6 +14,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+
+    @yield('styles')
+
 </head>
 <body>
     <div id="app">
@@ -74,11 +78,21 @@
                                 <li class="list-group-item">
                                     <a href="{{route('posts')}}">View Posts</a>
                                 </li>
-                                <li class="list-group-item">
-                                    <a href="{{route('users')}}">View Users</a>
-                                </li>
+                                @if(Auth::user()->admin)
+                                    <li class="list-group-item">
+                                        <a href="{{route('users')}}">View Users</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="{{route('user.create')}}">Create New User</a>
+                                    </li>
+
+                                    @endif
+
                                 <li class="list-group-item">
                                     <a href="{{route('tags')}}">View tags</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{route('user.profile')}}">My Profile</a>
                                 </li>
                                 <li class="list-group-item">
                                     <a href="{{route('categories')}}">View Category</a>
@@ -89,9 +103,6 @@
                                 <li class="list-group-item">
                                     <a href="{{route('tag.create')}}">Create New Tag</a>
                                 </li>
-                                <li class="list-group-item">
-                                    <a href="{{route('user.create')}}">Create New User</a>
-                                </li>
 
                                 <li class="list-group-item">
                                     <a href="{{route('post.create')}}">Create New Post</a>
@@ -99,6 +110,11 @@
                                 <li class="list-group-item">
                                     <a href="{{route('posts.trashed')}}">All Trashed Posts</a>
                                 </li>
+                                @if(Auth::user()->admin)
+                                    <li class="list-group-item">
+                                        <a href="{{route('settings')}}">Settings</a>
+                                    </li>
+                                    @endif
                             </ul>
                         </div>
                         @endif
@@ -123,5 +139,6 @@
         toastr.info('{{Session::get('info')}}');
         @endif
     </script>
+    @yield('scripts')
 </body>
 </html>

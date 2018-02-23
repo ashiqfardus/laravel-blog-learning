@@ -29,12 +29,22 @@
                                 {{$user->name}}
                             </td>
                             <td>
-                                Permissions
+                                @if($user->admin)
+                                    <a href="{{route('user.notadmin',['id'=>$user->id])}}" class="btn btn-sm btn-danger">
+                                        Remove Admin
+                                    </a>
+                                    @else
+                                    <a href="{{route('user.admin',['id'=>$user->id])}}" class="btn btn-sm btn-success">
+                                        Make Admin
+                                    </a>
+                                @endif
                             </td>
                             <td>
-                                <a href="" class="btn btn-sm btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </a>
+                                @if(Auth::id()!=$user->id)
+                                    <a href="{{route('user.delete',['id'=>$user->id])}}" class="btn btn-sm btn-danger">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                    @endif
                             </td>
                         </tr>
                     @endforeach

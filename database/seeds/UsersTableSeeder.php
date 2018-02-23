@@ -22,8 +22,8 @@ class UsersTableSeeder extends Seeder
            'user_id'=>$user->id,
             'about'=>'Loren Ipsum Text',
             'avatar'=>'uploads/avatars/1.jpg',
-            'facebook'=>'facebook.com',
-            'youtube'=>'Youtube.com'
+            'facebook'=>'https://www.facebook.com/',
+            'youtube'=>'https://www.youtube.com/'
         ]);
     }
 }

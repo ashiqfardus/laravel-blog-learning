@@ -39,7 +39,7 @@
                 </div>
                 <div class="form-group">
                     <lavel for="title">Content</lavel>
-                    <textarea id="content" cols="5" rows="5" type="text" name="content" class="form-control"></textarea>
+                    <textarea id="summernote" cols="5" rows="5" type="text" name="content" class="form-control"></textarea>
 
                 </div>
                 <div class="form-group">
@@ -53,3 +53,16 @@
 
     @include('admin.include.errors')
 @endsection
+
+@section('styles')
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+    @stop
+
+@section('scripts')
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote();
+        });
+    </script>
+@stop
