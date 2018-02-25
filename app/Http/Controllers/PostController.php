@@ -52,7 +52,7 @@ class PostController extends Controller
         $this->validate($request,[
            'title'=>'required|max:255',
            'featured'=>'required|image',
-           'content'=>'required|max:1000',
+           'content'=>'required',
             'category_id'=> 'required',
             'tags'=> 'required'
         ]);

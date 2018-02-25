@@ -16,6 +16,8 @@ Route::get('/',[
     'as'=>'index'
 ]);
 
+
+
 Auth::routes();
 
 Route::get('/admin/home', 'HomeController@index')->name('home');
@@ -166,3 +168,12 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function()
     ])->middleware('admin');
 });
 
+Route::get('/{slug}',[
+    'uses'=>'FrontendController@singlePost',
+    'as'=>'post.single'
+]);
+
+Route::get('/category/{id}',[
+    'uses'=>'FrontendController@category',
+    'as'=>'category.single'
+]);
