@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>{{$title}}</title>
 
-    <link rel="stylesheet" type="text/css" href="app/css/fonts.css">
-    <link rel="stylesheet" type="text/css" href="app/css/crumina-fonts.css">
-    <link rel="stylesheet" type="text/css" href="app/css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="app/css/grid.css">
-    <link rel="stylesheet" type="text/css" href="app/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('app/css/fonts.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app/css/crumina-fonts.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app/css/normalize.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app/css/grid.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app/css/styles.css')}}">
 
 
     <!--Plugins styles-->
 
-    <link rel="stylesheet" type="text/css" href="app/css/jquery.mCustomScrollbar.min.css">
-    <link rel="stylesheet" type="text/css" href="app/css/swiper.min.css">
-    <link rel="stylesheet" type="text/css" href="app/css/primary-menu.css">
-    <link rel="stylesheet" type="text/css" href="app/css/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('app/css/jquery.mCustomScrollbar.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app/css/swiper.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app/css/primary-menu.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app/css/magnific-popup.css')}}">
 
     <!--Styles for RTL-->
 
@@ -109,19 +109,18 @@
 
     <!-- JS Script -->
 
-    <script src="app/js/jquery-2.1.4.min.js"></script>
-    <script src="app/js/crum-mega-menu.js"></script>
-    <script src="app/js/swiper.jquery.min.js"></script>
-    <script src="app/js/theme-plugins.js"></script>
-    <script src="app/js/main.js"></script>
-    <script src="app/js/form-actions.js"></script>
+    <script src="{{asset('app/js/jquery-2.1.4.min.js')}}"></script>
+    <script src="{{asset('app/js/crum-mega-menu.js')}}"></script>
+    <script src="{{asset('app/js/swiper.jquery.min.js')}}"></script>
+    <script src="{{asset('app/js/theme-plugins.js')}}"></script>
+    <script src="{{asset('app/js/main.js')}}"></script>
+    <script src="{{asset('app/js/form-actions.js')}}"></script>
 
-    <script src="app/js/velocity.min.js"></script>
-    <script src="app/js/ScrollMagic.min.js"></script>
-    <script src="app/js/animation.velocity.min.js"></script>
+    <script src="{{asset('app/js/velocity.min.js')}}"></script>
+    <script src="{{asset('app/js/ScrollMagic.min.js')}}"></script>
+    <script src="{{asset('app/js/animation.velocity.min.js')}}"></script>
 
 
     <!-- ...end JS Script -->
-</div>
 </body>
 </html>
