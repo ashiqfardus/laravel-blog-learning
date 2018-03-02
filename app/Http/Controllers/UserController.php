@@ -56,8 +56,9 @@ class UserController extends Controller
         $profile=profile::create([
             'user_id'=>$user->id,
             'avatar'=>'uploads/avatars/1.jpg',
+            'facebook'=>'www.facebook.com',
+            'youtube'=>'www.youtube.com'
         ]);
-
         Session::flash('success','User has been created');
         return redirect()->route('users');
     }
