@@ -21,7 +21,24 @@ Route::get('/category/{id}',[
     'as'=>'category.single'
 ]);
 
+Route::get('/results',function (){
+    $posts= \App\Post::where('title','like','%'.request('query').'%')->get();
+    return view('results')->with('posts',$posts)
+        ->with('title','search results: '.request('query'))
+        ->with('categories',\App\Category::take(5)->get())
+        ->with('settings',\App\Settings::first())
+        ->with('query',request('query'));
+});
 
+Route::get('/subscribe',function (){
+    $email=request('email');
+
+    Newsletter::subscribe($email);
+
+    Session::flash('success',"Successfully subscribed");
+    return redirect()->back();
+
+});
 
 Auth::routes();
 
@@ -181,4 +198,5 @@ Route::get('/tag/{id}',[
     'uses'=>'FrontendController@tag',
     'as'=>'tag.single'
 ]);
+
 

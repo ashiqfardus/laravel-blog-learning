@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="app/css/swiper.min.css">
     <link rel="stylesheet" type="text/css" href="app/css/primary-menu.css">
     <link rel="stylesheet" type="text/css" href="app/css/magnific-popup.css">
-
+    <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
     <!--Styles for RTL-->
 
     <!--<link rel="stylesheet" type="text/css" href="app/css/rtl.css">-->
@@ -309,9 +309,10 @@
                     <div class="subscribe scrollme">
                         <div class="col-lg-6 col-lg-offset-5 col-md-6 col-md-offset-5 col-sm-12 col-xs-12">
                             <h4 class="subscribe-title">Email Newsletters!</h4>
-                            <form class="subscribe-form" method="post" action="">
+                            <form class="subscribe-form" action="/subscribe" method="get">
+                                {{csrf_field()}}
                                 <input class="email input-standard-grey input-white" name="email" required="required" placeholder="Your Email Address" type="email">
-                                <button class="subscr-btn">subscribe
+                                <button class="subscr-btn" type="submit">subscribe
                                     <span class="semicircle--right"></span>
                                 </button>
                             </form>
@@ -382,8 +383,8 @@
     <div class="container">
         <div class="row">
             <div class="form_search-wrap">
-                <form>
-                    <input class="overlay_search-input" placeholder="Type and hit Enter..." type="text">
+                <form action="/results" method="get">
+                    <input class="overlay_search-input" name="query" placeholder="Type and hit Enter..." type="text">
                     <a href="#" class="overlay_search-close">
                         <span></span>
                         <span></span>
@@ -409,7 +410,13 @@
 <script src="app/js/ScrollMagic.min.js"></script>
 <script src="app/js/animation.velocity.min.js"></script>
 
+    <script src="{{ asset('js/toastr.min.js') }}"></script>
 
+    <script>
+        @if(Session::has('success'))
+        toastr.success('{{Session::get('success')}}');
+        @endif
+    </script>
 <!-- ...end JS Script -->
 </div>
 </body>
